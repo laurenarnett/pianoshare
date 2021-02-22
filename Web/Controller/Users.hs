@@ -8,8 +8,13 @@ import Web.View.Users.Show
 
 instance Controller UsersController where
     action UsersAction = do
-        users <- query @User |> fetch
-        render IndexView { .. }
+      case currentUserOrNothing of
+        Just currentUser -> do
+            let greeting = "Hello " <> (get #username currentUser)
+            renderPlain (cs greeting)
+            users <- query @User |> fetch
+            render IndexView { .. }
+        Nothing -> renderPlain "Please login first"
 
     action NewUserAction = do
         let user = newRecord
@@ -30,9 +35,12 @@ instance Controller UsersController where
             |> ifValid \case
                 Left user -> render EditView { .. }
                 Right user -> do
-                    user <- user |> updateRecord
+                    hashed <- hashPassword (get #passwordHash user)
+                    user <- user
+                      |> set #passwordHash hashed
+                      |> updateRecord
                     setSuccessMessage "User updated"
-                    redirectTo EditUserAction { .. }
+                    redirectTo UsersAction
 
     action CreateUserAction = do
         let user = newRecord @User
@@ -41,8 +49,11 @@ instance Controller UsersController where
             |> ifValid \case
                 Left user -> render NewView { .. } 
                 Right user -> do
-                    user <- user |> createRecord
-                    setSuccessMessage "User created"
+                    hashed <- hashPassword (get #passwordHash user)
+                    user <- user
+                      |> set #passwordHash hashed
+                      |> createRecord
+                    setSuccessMessage "Registered successfully"
                     redirectTo UsersAction
 
     action DeleteUserAction { userId } = do
@@ -52,5 +63,7 @@ instance Controller UsersController where
         redirectTo UsersAction
 
 buildUser user = user
-    |> fill @["username","city"]
+    |> fill @["email", "passwordHash", "username", "city"]
     |> validateField #username nonEmpty
+    |> validateField #email isEmail
+    |> validateField #passwordHash nonEmpty

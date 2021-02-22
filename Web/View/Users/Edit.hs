@@ -18,6 +18,8 @@ instance View EditView where
 renderForm :: User -> Html
 renderForm user = formFor user [hsx|
     {(textField #username)}
+    {(emailField #email)}
+    {(passwordField #passwordHash)}
     {(textField #city)}
     {submitButton}
 |]

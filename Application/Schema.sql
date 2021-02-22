@@ -6,7 +6,7 @@ CREATE TABLE users (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
     email TEXT NOT NULL,
     password_hash TEXT NOT NULL,
-    locked_at TIMESTAMP WITH TIME ZONE DEFAULT NULL NOT NULL,
+    locked_at TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     failed_login_attempts INT DEFAULT 0 NOT NULL
 );
 CREATE TABLE pianos (
