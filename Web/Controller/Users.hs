@@ -10,9 +10,8 @@ instance Controller UsersController where
     action UsersAction = do
       case currentUserOrNothing of
         Just currentUser -> do
-            let greeting = "Hello " <> (get #username currentUser)
-            renderPlain (cs greeting)
             users <- query @User |> fetch
+            let greeting = "Hello " <> (get #username currentUser)
             render IndexView { .. }
         Nothing -> renderPlain "Please login first"
 

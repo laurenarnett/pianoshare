@@ -1,7 +1,7 @@
 module Web.View.Users.Index where
 import Web.View.Prelude
 
-data IndexView = IndexView { users :: [User] }
+data IndexView = IndexView { users :: [User], greeting :: Text }
 
 instance View IndexView where
     html IndexView { .. } = [hsx|
@@ -10,6 +10,7 @@ instance View IndexView where
                 <li class="breadcrumb-item active"><a href={UsersAction}>Users</a></li>
             </ol>
         </nav>
+        <h2>{greeting}</h2>
         <h1>All Users<a href={pathTo NewUserAction} class="btn btn-primary ml-4">+ New</a></h1>
         <div class="table-responsive">
             <table class="table">
