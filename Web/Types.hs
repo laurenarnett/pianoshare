@@ -31,3 +31,13 @@ data SessionsController
   | CreateSessionAction
   | DeleteSessionAction
   deriving (Eq, Show, Data)
+
+data SpacesController
+    = SpacesAction
+    | NewSpaceAction
+    | ShowSpaceAction { spaceId :: !(Id Space) }
+    | CreateSpaceAction
+    | EditSpaceAction { spaceId :: !(Id Space) }
+    | UpdateSpaceAction { spaceId :: !(Id Space) }
+    | DeleteSpaceAction { spaceId :: !(Id Space) }
+    deriving (Eq, Show, Data)
