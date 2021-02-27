@@ -10,11 +10,13 @@ import Web.View.Layout (defaultLayout)
 import Web.Controller.Spaces
 import Web.Controller.Users
 import Web.Controller.Static
+import Web.Controller.Cities
 
 instance FrontController WebApplication where
     controllers = 
         [ startPage WelcomeAction
         , parseRoute @SessionsController -- login controller
+        , parseRoute @CitiesController
         -- Generator Marker
         , parseRoute @SpacesController
         , parseRoute @UsersController

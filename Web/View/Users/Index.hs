@@ -11,7 +11,7 @@ instance View IndexView where
             </ol>
         </nav>
         <h2>{greeting}</h2>
-        <h1>All Users<a href={pathTo NewUserAction} class="btn btn-primary ml-4">+ New</a></h1>
+        <h1>All Users <!-- <a href={pathTo NewUserAction} class="btn btn-primary ml-4">+ New</a> --> </h1>
         <div class="table-responsive">
             <table class="table">
                 <thead>

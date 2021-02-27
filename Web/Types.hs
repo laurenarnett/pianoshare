@@ -41,3 +41,6 @@ data SpacesController
     | UpdateSpaceAction { spaceId :: !(Id Space) }
     | DeleteSpaceAction { spaceId :: !(Id Space) }
     deriving (Eq, Show, Data)
+
+data CitiesController = CitiesAction deriving (Eq, Show, Data)
+  

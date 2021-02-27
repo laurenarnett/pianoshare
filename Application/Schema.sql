@@ -35,6 +35,14 @@ CREATE TABLE reservations (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
 );
+CREATE TABLE reviews (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
+    space_id UUID NOT NULL,
+    author UUID NOT NULL,
+    body TEXT NOT NULL
+);
 ALTER TABLE reservations ADD CONSTRAINT reservations_ref_space_id FOREIGN KEY (space_id) REFERENCES spaces (id) ON DELETE NO ACTION;
 ALTER TABLE reservations ADD CONSTRAINT reservations_ref_user_id FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE NO ACTION;
+ALTER TABLE reviews ADD CONSTRAINT reviews_ref_author FOREIGN KEY (author) REFERENCES users (id) ON DELETE NO ACTION;
+ALTER TABLE reviews ADD CONSTRAINT reviews_ref_space_id FOREIGN KEY (space_id) REFERENCES spaces (id) ON DELETE NO ACTION;
 ALTER TABLE spaces ADD CONSTRAINT spaces_ref_owner_id FOREIGN KEY (owner_id) REFERENCES users (id) ON DELETE NO ACTION;

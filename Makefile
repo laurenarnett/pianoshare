@@ -8,7 +8,7 @@ CSS_FILES += ${IHP}/static/vendor/bootstrap.min.css
 CSS_FILES += ${IHP}/static/vendor/flatpickr.min.css
 CSS_FILES += static/app.css
 
-JS_FILES += ${IHP}/static/vendor/jquery-3.2.1.slim.min.js
+JS_FILES += static/jquery-3.5.1.min.js
 JS_FILES += ${IHP}/static/vendor/timeago.js
 JS_FILES += ${IHP}/static/vendor/popper.min.js
 JS_FILES += ${IHP}/static/vendor/bootstrap.min.js

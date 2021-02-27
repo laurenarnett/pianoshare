@@ -10,7 +10,18 @@ instance View IndexView where
                 <li class="breadcrumb-item active"><a href={SpacesAction}>Spaces</a></li>
             </ol>
         </nav>
-        <h1>Index <a href={pathTo NewSpaceAction} class="btn btn-primary ml-4">+ New</a></h1>
+        <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script>
+        <script>console.log("yo1");</script>
+        <script src="/autocomplete.js"></script>
+        <div class="form-row form-group">
+          <div class="col">
+            <input class="form-control basicAutoComplete" type="text" data-url="Cities" autocomplete="off">
+          </div>
+          <div class="col">
+            <a href={pathTo NewSpaceAction} class="from-control btn btn-primary">Submit</a>
+          </div>
+        </div>
+        <h1>Rehearsal Spaces in City <a href={pathTo NewSpaceAction} class="btn btn-primary ml-4">+ New</a></h1>
         <div class="table-responsive">
             <table class="table">
                 <thead>

@@ -38,6 +38,7 @@ instance Controller SpacesController where
         let space = newRecord @Space
         space
             |> buildSpace
+            |> set #ownerId (get #id currentUser)
             |> ifValid \case
                 Left space -> render NewView { .. } 
                 Right space -> do

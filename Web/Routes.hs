@@ -3,6 +3,7 @@ import IHP.RouterPrelude
 import Generated.Types
 import Web.Types
 
+instance AutoRoute CitiesController
 -- Generator Marker
 instance AutoRoute SessionsController
 instance AutoRoute StaticController
