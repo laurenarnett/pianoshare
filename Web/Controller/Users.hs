@@ -13,7 +13,10 @@ instance Controller UsersController where
             users <- query @User |> fetch
             let greeting = "Hello " <> (get #username currentUser)
             render IndexView { .. }
-        Nothing -> renderPlain "Please login first"
+        Nothing -> do
+            users <- query @User |> fetch
+            let greeting = "Hello unspecified user"
+            render IndexView { .. }
 
     action NewUserAction = do
         let user = newRecord

@@ -11,4 +11,5 @@ instance Controller SessionsController where
       Sessions.createSessionAction @User
     action DeleteSessionAction = Sessions.deleteSessionAction @User
 
-instance Sessions.SessionsControllerConfig User
+instance Sessions.SessionsControllerConfig User where
+  afterLoginRedirectPath = "/Spaces"

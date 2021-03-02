@@ -8,9 +8,11 @@ instance View ShowView where
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href={SpacesAction}>Spaces</a></li>
+                <li class="breadcrumb-item active"><a href={UsersAction}>Users</a></li>
                 <li class="breadcrumb-item active">Show Space</li>
             </ol>
         </nav>
-        <h1>Show Space</h1>
-        <p>{space}</p>
+        <h1>{get #ownerId space}'s Room</h1>
+        <p>In {get #locality space}</p>
+        <p>Posted {get #createdAt space |> timeAgo}</p>
     |]
