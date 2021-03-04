@@ -6,7 +6,6 @@ data IndexView = IndexView { spaces :: [Space] }
 instance View IndexView where
     html IndexView { .. } = [hsx|
         <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script>
-        <script>console.log("yo1");</script>
         <script src="/autocomplete.js"></script>
         <form action={pathTo SpacesAction} method="GET">
             <div class="form-row form-group">
@@ -37,7 +36,6 @@ instance View IndexView where
 
 renderSpace space = [hsx|
     <tr>
-        <td>{space}</td>
         <td><a href={ShowSpaceAction (get #id space)}>{get #summary space}</a></td>
         <td><a href={EditSpaceAction (get #id space)} class="text-muted">Edit</a></td>
         <td><a href={DeleteSpaceAction (get #id space)} class="js-delete text-muted">Delete</a></td>

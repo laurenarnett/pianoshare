@@ -17,6 +17,9 @@ instance Controller SpacesController where
 
     action ShowSpaceAction { spaceId } = do
         space <- fetch spaceId
+        let ownerId = get #ownerId space
+        user <- query @User
+          |> findBy #id ownerId
         render ShowView { .. }
 
     action EditSpaceAction { spaceId } = do
