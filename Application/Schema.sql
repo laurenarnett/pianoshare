@@ -24,7 +24,8 @@ CREATE TABLE spaces (
     longitude REAL NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
-    space_type TEXT NOT NULL
+    space_type TEXT NOT NULL,
+    title TEXT NOT NULL
 );
 CREATE TABLE reservations (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
