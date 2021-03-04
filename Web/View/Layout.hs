@@ -20,7 +20,7 @@ defaultLayout isLoggedIn inner = H.docTypeHtml ! A.lang "en" $ [hsx|
     <title>PianoShare</title>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href={SpacesAction}>
-        <img src="https://avatars.githubusercontent.com/u/22421815?s=460&u=7d132201a67dd4edf2ad6ece72cb1e1c63804fb8&v=4" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="" style="margin-right: 6px">
         PianoShare
     </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

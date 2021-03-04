@@ -36,8 +36,8 @@ instance View WelcomeView where
               </div>
          </div>
 
-         <div style="max-width: 800px; margin-left: auto; margin-right: auto; margin-top: 4rem">
-              <img src="/ihp-welcome-icon.svg" alt="/ihp-welcome-icon">
+         <div style="max-width: 800px;">
+              <img src="/logo.png" style="transform: scale(0.5); margin-left: -300px; margin-top: -300px">
               <p style="color: hsla(196, 13%, 50%, 1); margin-top: 4rem">
                  You can modify this start page by making changes to "./Web/View/Static/Welcome.hs".
               </p>
