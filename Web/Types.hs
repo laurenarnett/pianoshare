@@ -8,7 +8,9 @@ import Generated.Types
 data WebApplication = WebApplication deriving (Eq, Show)
 
 
-data StaticController = WelcomeAction deriving (Eq, Show, Data)
+data StaticController = WelcomeAction
+                      | CalendarAction
+                      deriving (Eq, Show, Data)
 
 data UsersController
     = UsersAction
@@ -44,3 +46,13 @@ data SpacesController
 
 data CitiesController = CitiesAction deriving (Eq, Show, Data)
   
+
+data ReservationsController
+    = ReservationsAction
+    | NewReservationAction { spaceId :: !(Id Space) }
+    | ShowReservationAction { reservationId :: !(Id Reservation) }
+    | CreateReservationAction { spaceId :: !(Id Space) }
+    | EditReservationAction { reservationId :: !(Id Reservation) }
+    | UpdateReservationAction { reservationId :: !(Id Reservation) }
+    | DeleteReservationAction { reservationId :: !(Id Reservation) }
+    deriving (Eq, Show, Data)

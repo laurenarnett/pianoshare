@@ -36,7 +36,7 @@ instance View IndexView where
 
 renderSpace space = [hsx|
     <tr>
-        <td><a href={ShowSpaceAction (get #id space)}>{get #summary space}</a></td>
+        <td><a href={ShowSpaceAction (get #id space)}>{get #title space}</a></td>
         <td><a href={EditSpaceAction (get #id space)} class="text-muted">Edit</a></td>
         <td><a href={DeleteSpaceAction (get #id space)} class="js-delete text-muted">Delete</a></td>
     </tr>

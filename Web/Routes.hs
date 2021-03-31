@@ -12,3 +12,6 @@ instance AutoRoute UsersController
 
 instance AutoRoute SpacesController
 
+
+instance AutoRoute ReservationsController
+

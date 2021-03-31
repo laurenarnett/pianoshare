@@ -11,7 +11,7 @@ instance View ShowView where
                 <li class="breadcrumb-item active">Show User</li>
             </ol>
         </nav>
-        <h1>{get #username user}</h1>
+        <h1>{get #firstname user}</h1>
         <p>{get #city user}</p>
         <p>Joined {get #createdAt user |> timeAgo}</p>
     |]

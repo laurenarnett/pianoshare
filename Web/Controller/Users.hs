@@ -11,7 +11,7 @@ instance Controller UsersController where
       case currentUserOrNothing of
         Just currentUser -> do
             users <- query @User |> fetch
-            let greeting = "Hello " <> (get #username currentUser)
+            let greeting = "Hello " <> (get #firstname currentUser)
             render IndexView { .. }
         Nothing -> do
             users <- query @User |> fetch
@@ -65,7 +65,6 @@ instance Controller UsersController where
         redirectTo UsersAction
 
 buildUser user = user
-    |> fill @["email", "passwordHash", "username", "city"]
-    |> validateField #username nonEmpty
+    |> fill @["email", "passwordHash", "firstname", "lastname", "city"]
     |> validateField #email isEmail
     |> validateField #passwordHash nonEmpty

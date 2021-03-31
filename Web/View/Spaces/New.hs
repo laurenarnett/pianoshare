@@ -17,6 +17,7 @@ instance View NewView where
 
 renderForm :: Space -> Html
 renderForm space = formFor space [hsx|
+    {(textField #title)}
     {(textareaField #summary) {fieldLabel = "Summary", helpText = "Describe your rehearsal space", placeholder="A gorgeous Steinway grand..."}}
     {(textField #locality)}
     {(textField #administrativeArea)}

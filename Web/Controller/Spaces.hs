@@ -18,6 +18,8 @@ instance Controller SpacesController where
     action ShowSpaceAction { spaceId } = do
         space <- fetch spaceId
         let ownerId = get #ownerId space
+        reservations <- query @Reservation
+          |> findManyBy #spaceId spaceId
         user <- query @User
           |> findBy #id ownerId
         render ShowView { .. }
@@ -56,4 +58,4 @@ instance Controller SpacesController where
         redirectTo SpacesAction
 
 buildSpace space = space
-    |> fill @["ownerId","summary","locality","administrativeArea","country","postalCode","thoroughfare","premise","price","latitude","longitude","spaceType"]
+    |> fill @["ownerId","summary","locality","administrativeArea","country","postalCode","thoroughfare","premise","price","latitude","longitude","spaceType","title"]

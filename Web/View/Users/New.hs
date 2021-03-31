@@ -17,7 +17,8 @@ instance View NewView where
 
 renderForm :: User -> Html
 renderForm user = formFor user [hsx|
-    {(textField #username)}
+    {(textField #firstname) {fieldLabel = "First name"}}
+    {(textField #lastname) {fieldLabel = "Last name"}}
     {(emailField #email)}
     {(passwordField #passwordHash) {fieldLabel = "Password"}}
     {(textField #city)}
